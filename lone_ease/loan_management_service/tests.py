@@ -15,9 +15,9 @@ class TestLoanManagementService(TestCase):
 
         data = {
             "aadhar_id":123456789, 
-            "name": "akshat",
-            "email_id": "akshat@test.com",
-            "annual_income": 1500000
+            "name": "t",
+            "email_id": "t@test.com",
+            "annual_income": 15
             }
 
         transaction_obj_1 = UserTransactionInformation.objects.create(aadhar_id=data["aadhar_id"], registration_date=datetime.now(), amount=50000, transaction_type="DEBIT")
@@ -46,11 +46,11 @@ class TestLoanManagementService(TestCase):
 
         data = {
                 "user_uuid":str(user.user_uuid),
-                "loan_type":"ELECTRONICS",
+                "loan_type":"CS",
                 "loan_amount":100000,
-                "interest_rate":15,
+                "interest_rate":5,
                 "term_period":10,
-                "disbursement_date":"2023-07-19"
+                "disbursement_date":"2023-07-25"
             }
         response = c.post(path="/apply_loan/", data=data, content_type="application/json")
         self.assertEqual(response.json()["success"], "False")
@@ -58,11 +58,11 @@ class TestLoanManagementService(TestCase):
 
         data = {
                 "user_uuid":str(user.user_uuid),
-                "loan_type":"CAR",
-                "loan_amount":800000,
-                "interest_rate":15,
+                "loan_type":"AR",
+                "loan_amount":80,
+                "interest_rate":2,
                 "term_period":10,
-                "disbursement_date":"2023-07-19"
+                "disbursement_date":"2023-07-25"
             }
         response = c.post(path="/apply_loan/", data=data, content_type="application/json")
         self.assertEqual(response.json()["success"], "False")
@@ -71,10 +71,10 @@ class TestLoanManagementService(TestCase):
         data = {
                 "user_uuid":str(user.user_uuid),
                 "loan_type":"CAR",
-                "loan_amount":600000,
-                "interest_rate":13,
-                "term_period":10,
-                "disbursement_date":"2023-07-19"
+                "loan_amount":600,
+                "interest_rate":3,
+                "term_period":20,
+                "disbursement_date":"2023-07-24"
             }
         response = c.post(path="/apply_loan/", data=data, content_type="application/json")
         self.assertEqual(response.json()["success"], "False")
@@ -82,11 +82,11 @@ class TestLoanManagementService(TestCase):
 
         data = {
                 "user_uuid":str(user.user_uuid),
-                "loan_type":"CAR",
-                "loan_amount":600000,
+                "loan_type":"vam",
+                "loan_amount":6800000,
                 "interest_rate":16,
                 "term_period":6,
-                "disbursement_date":"2023-07-19"
+                "disbursement_date":"2023-07-25"
             }
         response = c.post(path="/apply_loan/", data=data, content_type="application/json")
         self.assertEqual(response.json()["success"], "False")
