@@ -13,7 +13,7 @@ Clone the GitHub repo:
 
 bash
 Copy code
-git clone https://github.com/akshat302/bright-money.git
+git clone
 Change directory into the Branch-International folder:
 
 bash
